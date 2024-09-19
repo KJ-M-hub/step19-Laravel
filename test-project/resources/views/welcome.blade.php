@@ -16,6 +16,9 @@
         </style>
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
+        @can('test')
+            テストゲートを通過しました！
+        @endcan
         @auth
           <p>
             {{ Auth::user()->name }}さん、こんにちは！

@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //既存のカラムがない場合のみ追加
-        if (!Schema::hasColumn('posts', 'user_id')) {
-            Schema::table('posts', function (Blueprint $table) {
-                $table->foreignId('user_id');
-            });
-        }
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->after('name')->nullable();
+        });
     }
 
     /**
@@ -24,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn('user_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('role');
         });
     }
 };
