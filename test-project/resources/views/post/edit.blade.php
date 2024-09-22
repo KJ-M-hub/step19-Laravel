@@ -27,10 +27,16 @@
                 <x-input-error :messages="$errors->get('body')" class="mt-2" />
                 <textarea id="body" name="body" class="bg-gray-200 w-auto py-2 border border-gray-300 rounded-md" cols="30" rows="5">{{old('body', $post->body)}}</textarea>
             </div>
-
-            <x-primary-button class="mt-4">
-                送信する
-            </x-primary-button>
+            <div class="mt-8 flex">
+                <x-primary-button class="mt-4">
+                    更新する
+                </x-primary-button>
+                <a href="{{route('post.index')}}" class="mt-4 ml-8">
+                    <x-primary-button  name="back_to_index" class="dark:bg-green-500 dark:hover:bg-green-200">
+                        一覧に戻る
+                    </x-primary-button>
+                </a>
+            </div>
         </form>
     </div>
 </x-app-layout>
