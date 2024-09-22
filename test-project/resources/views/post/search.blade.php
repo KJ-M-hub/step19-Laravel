@@ -1,25 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center justify-between">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                投稿一覧
-            </h2>
-            <div class="">
-                <form action="{{ route('post.search')}}" method="GET">
-                    @csrf
-                    <input type="text" name="search" class="bg-gray-200 w-auto py-2 border border-gray-300 rounded-md" value="{{ request()->input('search') }}" placeholder="検索ワードを入力">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-300 text-white px-4 py-2 rounded-md ml-2 transition ease-in-out duration-150">検索</button>
-                </form>
-            </div>
-        </div>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            検索結果
+        </h2>
     </x-slot>
 
     <div class="max-w-7xl mx-auto px-6">
-        {{-- @if(session('message'))
-            <div class="dark:text-red-600 font-bold">
-                {{ session('message') }}
-            </div>
-        @endif --}}
         <x-message :message="session('message')" />
         @foreach($posts as $post)
             <div class="mt-4 p-8 dark:bg-white w-full rounded-2xl">

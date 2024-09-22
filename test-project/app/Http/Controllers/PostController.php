@@ -87,4 +87,18 @@ class PostController extends Controller
         $request->session()->flash('message', '削除しました');
         return redirect()->route('post.index');
     }
+
+    /**
+     * Search the specified resource from storage.
+     */
+    public function search(Request $request) {
+
+        $search = $request->input('search');
+        if(!empty($search)) {
+            $posts = Post::where('title', 'like', "%$search%")
+            ->orWhere('body', 'like', "%$search%")
+            ->paginate(10);
+        }
+        return view('post.search', compact('posts'));
+    }
 }
