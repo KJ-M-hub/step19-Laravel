@@ -5,10 +5,10 @@
                 投稿一覧
             </h2>
             <div class="">
-                <form action="{{ route('post.search')}}" method="GET">
+                <form  action="{{route('post.index')}}" method="GET">
                     @csrf
-                    <input type="text" name="search" class="bg-gray-200 w-auto py-2 border border-gray-300 rounded-md" value="{{ request()->input('search') }}" placeholder="検索ワードを入力">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-300 text-white px-4 py-2 rounded-md ml-2 transition ease-in-out duration-150">検索</button>
+                    <input type="search" name="search" class="bg-gray-200 w-auto py-2 border border-gray-300 rounded-md" value="{{ request('search') }}" placeholder="検索ワードを入力">
+                    <input type="submit" value="検索" class="dark:bg-blue-500 dark:hover:bg-blue-300 dark:text-white rounded-md p-2">
                 </form>
             </div>
         </div>

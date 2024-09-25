@@ -15,8 +15,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [PostController::class, 'index'])
 ->middleware(['auth'])->name('dashboard');
 
-Route::get('post/search', [PostController::class, 'search'])
-->name('post.search');
+
 
 
 Route::middleware('auth')->group(function () {

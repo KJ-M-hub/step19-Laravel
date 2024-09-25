@@ -10,10 +10,17 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $posts = Post::all();
-        $posts = Post::paginate(10);
+            // 検索条件がある場合は、検索結果を取得
+        if ($request->has('search') && !empty($request->search)) {
+            $posts = Post::where('title', 'like', "%{$request->search}%")
+                ->orWhere('body', 'like', "%{$request->search}%")
+                ->paginate(10); // ページネーションを適用
+        } else {
+            // 検索条件がない場合は全ての投稿を取得
+            $posts = Post::paginate(10);
+        }
         return view('post.index', compact('posts'));
     }
 
@@ -88,17 +95,5 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
 
-    /**
-     * Search the specified resource from storage.
-     */
-    public function search(Request $request) {
-
-        $search = $request->input('search');
-        if(!empty($search)) {
-            $posts = Post::where('title', 'like', "%$search%")
-            ->orWhere('body', 'like', "%$search%")
-            ->paginate(10);
-        }
-        return view('post.search', compact('posts'));
-    }
+    
 }
