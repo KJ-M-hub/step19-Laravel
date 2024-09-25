@@ -32,5 +32,8 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script src="../resources/js/particles.min.js"></script>
+        <script src="./resources/js/app.js"></script>
     </body>
 </html>
