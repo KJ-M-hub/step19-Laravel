@@ -15,22 +15,23 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen  dark:bg-gray-900">
             @include('layouts.navigation')
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <header class="bg-transparent relative z-10">
+                    <div class="bg-transparent max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
             @endisset
-
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+               <div class="">
+                    {{ $slot }}
+               </div>
+               <div id="particles-js" class=""></div>
             </main>
-            <div id="particles-js"></div>
         </div>
 
         <script src="{{ asset('/build/assets/particles.min.js') }}"></script> <!-- particles.min.js を先に読み込む -->
