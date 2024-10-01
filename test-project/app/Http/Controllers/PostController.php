@@ -74,7 +74,7 @@ class PostController extends Controller
             return redirect()->route('post.index');
         }
         
-        $validated = $request->validated([
+        $validated = $request->validate([
             'title' => 'required|max:20',
             'body' => 'required|max:400'
         ]);

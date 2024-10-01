@@ -34,7 +34,7 @@
             </main>
         </div>
 
-        <script src="{{ asset('/build/assets/particles.min.js') }}"></script> <!-- particles.min.js を先に読み込む -->
-        <script src="{{ asset('/build/assets/app.js') }}"></script>
+        <script src="{{ asset('/js/particles.min.js') }}"></script> <!-- particles.min.js を先に読み込む -->
+        <script src="{{ asset('/js/app.js') }}"></script>
     </body>
 </html>
